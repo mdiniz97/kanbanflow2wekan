@@ -44,8 +44,15 @@ class k2w:
       lists = {}
       for task in self.dumps[dump_name]:
         print('\tTASK: ', task['name'])
-        if task['swimlane'] not in swimlanes:
-          swimlane_id = self.w.create_swimlane(board_id, task['swimlane'])
+
+        if 'swimlane' in task.keys():
+          if task['swimlane'] not in swimlanes:
+            swimlane_id = self.w.create_swimlane(board_id, task['swimlane'])
+            swimlanes[task['swimlane']] = swimlane_id
+
+        else:
+          swimlane_id = self.w.create_swimlane(board_id, dump_name)
+          task['swimlane'] = dump_name
           swimlanes[task['swimlane']] = swimlane_id
 
         if task['column'] not in lists:
