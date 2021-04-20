@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kanbanflow2wekan"
-version = "0.2.2"
+version = "0.2.3"
 description = "This is a library to perform kanban migration from Kanbanflow to Wekan in an automated way."
 authors = ["mdiniz97 <marcosdinizpaulo@gmail.com>"]
 
